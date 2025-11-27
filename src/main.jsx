@@ -210,7 +210,7 @@ function Usefct(){
   useEffect(()=>{
     console.log("hello abhi");
     <h1>hello abhi</h1>
-  })
+  },[])//second parameter is dependency array
   function Incresev(){
     setcount(count+1);
   }
