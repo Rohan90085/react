@@ -1,55 +1,123 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
-import App1 from './app1.jsx'
-import './index.css'
+// import { StrictMode } from 'react'
+// import { createRoot } from 'react-dom/client'
+// import React,{UseState} from 'react';
+// import App from './App.jsx'
+// import App1 from './app1.jsx'
+// import './index.css'
+// import { StrictMode, useState } from 'react'
 
 
-// createRoot(document.getElementById('root')).render(
-//   <StrictMode>
-//     <App />
-//     <App1 />
-//   </StrictMode>,
-// )
-// const name='rohan';
-// const age=22;
-// function AB(){
-//   return(<h1 className='o'>hello abhi</h1>);
-// }
-// function CD(){
-//   return(<h1>{name},{age}</h1>);
-// }
-// function L(){
-//   return(<><CD />,<AB /></>
-//   );
-// }
-// createRoot(document.getElementById('k')).render(<L />);
-// props
-//let name;
-//let age;
-// function Person(props){
-//   return(<><f1 name='rohan'/>,<f2 age={20}/>
-//   </>);
-// }
-// function f1(props){
+// // createRoot(document.getElementById('root')).render(
+// //   <StrictMode>
+// //     <App />
+// //     <App1 />
+// //   </StrictMode>,
+// // )
+// // const name='rohan';
+// // const age=22;
+// // function AB(){
+// //   return(<h1 className='o'>hello abhi</h1>);
+// // }
+// // function CD(){
+// //   return(<h1>{name},{age}</h1>);
+// // }
+// // function L(){
+// //   return(<><CD />,<AB /></>
+// //   );
+// // }
+// // createRoot(document.getElementById('k')).render(<L />);
+// // props
+// //let name;
+// //let age;
+// // function Person(props){
+// //   return(<><f1 name='rohan'/>,<f2 age={20}/>
+// //   </>);
+// // }
+// // function f1(props){
+// //   return(
+// //   <><h1>hello{props.name} </h1>
+// //   <h1> age is {props.age}</h1></>
+// //   );
+// // }
+// // createRoot(document.getElementById('k')).render(<Person  />);
+// function Person(){
 //   return(
-//   <><h1>hello{props.name} </h1>
-//   <h1> age is {props.age}</h1></>
+//     <>
+//       <F1 name='rohan' age={20} >written by great man</F1>
+//       <F2 name='abhi' age={22} />
+//       <F3 name='rahul' age={25} >written accsesinng children in desturucting method</F3>
+//     </>
 //   );
 // }
-// createRoot(document.getElementById('k')).render(<Person  />);
-function Person(){
-  return(
+
+// function F1(props){
+//   return(
+//     <>
+//       <h1>hello {props.name}</h1>
+//       <h1>age is {props.age}</h1>
+//       <h2>{props.children}</h2>
+//     </>
+//   );
+// }
+// function F2({name,age}){
+//   return(<>
+//   <h1>name {name}</h1>
+//   <h2>age :{age}</h2></>)
+// }
+// function F3({name,age,children}){
+//   return(<>
+//   <h1>name {name}</h1>
+//   <h2>age :{age}</h2>
+//   <h3>{children}</h3>
+//   </>)
+// }
+// createRoot(document.getElementById('k')).render(<Person />);
+// function D(){
+//   function A(p){
+//     alert('hello abhi' +p);
+//   }
+//   return (<>
+//   <button onClick={() => A('rohan')}>click me</button></>)
+// }
+// createRoot(document.getElementById('d')).render(<D />);
+// function G(){
+//   return(
+//     <>
+//       <button className="g" onClick={() => alert("hi")}>Click me</button>
+//     </>
+//   )
+// }
+// createRoot(document.getElementById('g')).render(<G />);
+// function Change(){
+//   const[initial, setInitial] = useState("hello");
+//   function Update(){
+//     setInitial("welcome to react");
+//   }
+//   return(
+//     <>
+//       <h1>{initial}</h1>
+//       <button onClick={Update}>click</button>
+//     </>
+//   );
+// }
+// createRoot(document.getElementById('c')).render(<Change />);
+//---------------------------------------------------------------------------------------------------------------
+import { StrictMode, useState } from "react";
+import { createRoot } from "react-dom/client";
+
+// ------ PROPS EXAMPLES ------
+function Person() {
+  return (
     <>
-      <F1 name='rohan' age={20} >written by great man</F1>
-      <F2 name='abhi' age={22} />
-      <F3 name='rahul' age={25} >written accsesinng children in desturucting method</F3>
+      <F1 name="rohan" age={20}>written by great man</F1>
+      <F2 name="abhi" age={22} />
+      <F3 name="rahul" age={25}>written accessing children in destructuring</F3>
     </>
   );
 }
 
-function F1(props){
-  return(
+function F1(props) {
+  return (
     <>
       <h1>hello {props.name}</h1>
       <h1>age is {props.age}</h1>
@@ -57,32 +125,79 @@ function F1(props){
     </>
   );
 }
-function F2({name,age}){
-  return(<>
-  <h1>name {name}</h1>
-  <h2>age :{age}</h2></>)
+
+function F2({ name, age }) {
+  return (
+    <>
+      <h1>name: {name}</h1>
+      <h2>age: {age}</h2>
+    </>
+  );
 }
-function F3({name,age,children}){
-  return(<>
-  <h1>name {name}</h1>
-  <h2>age :{age}</h2>
-  <h3>{children}</h3>
-  </>)
+
+function F3({ name, age, children }) {
+  return (
+    <>
+      <h1>name: {name}</h1>
+      <h2>age: {age}</h2>
+      <h3>{children}</h3>
+    </>
+  );
 }
-createRoot(document.getElementById('k')).render(<Person />);
-function D(){
-  function A(p){
-    alert('hello abhi' +p);
+
+createRoot(document.getElementById("k")).render(<Person />);
+
+// ------ EVENT EXAMPLE ------
+function D() {
+  function A(p) {
+    alert("hello " + p);
   }
-  return (<>
-  <button onClick={() => A('rohan')}>click me</button></>)
+  return <button onClick={() => A("rohan")}>Click Me</button>;
 }
-createRoot(document.getElementById('d')).render(<D />);
-function G(){
+
+createRoot(document.getElementById("d")).render(<D />);
+
+// ------ SIMPLE EVENT ------
+function G() {
+  return (
+    <>
+      <button onClick={() => alert("hi")}>Click me</button>
+    </>
+  );
+}
+
+createRoot(document.getElementById("g")).render(<G />);
+
+// ------ STATE EXAMPLE ------
+function Change() {
+  const [initial, setInitial] = useState("hello");
+
+  function Update() {
+    if(initial=="w"){
+    setInitial("welcome to react");}
+    else{setInitial("else");}
+  }
+
+  return (
+    <>
+      <h1>{initial}</h1>
+      <button onClick={Update}>click</button>
+    </>
+  );
+}
+
+createRoot(document.getElementById("c")).render(<Change />);
+const user=[{name:'jdd',age:20},{name:'kdd',age:22},
+{name:'ldd',age:25}];
+function U(){
+  const [initial,setInitial]=useState(user);
   return(
     <>
-      <button className="g" onClick={() => alert("hi")}>Click me</button>
+    {user.map((value)=>(
+      <li>{value.name}</li>
+    ))}
     </>
   )
 }
-createRoot(document.getElementById('g')).render(<G />);
+createRoot(document.getElementById("user")).render(<U />);
+//use effect
