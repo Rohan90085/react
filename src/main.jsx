@@ -223,27 +223,39 @@ createRoot(document.getElementById("g")).render(<G />);
 //   )
 // }
 // createRoot(document.getElementById("userefct")).render(<Usefct />);
-
-const url='https://api.github.com/users';
-function Gt(){
-  const[users,setuser]=useState([]);
-  async function getdata(){
-    const response=await fetch(url);
-    const data=await response.json();
-    console.log(data);
-    setuser(data);
-  }
-  // useEffect(()=>{
+//--------------------------------------------------------------------------------------
+//fetching url data
+// const url='https://api.github.com/users';
+// function Gt(){
+//   const[users,setuser]=useState([]);
+//   async function getdata(){
+//     const response=await fetch(url);
+//     const data=await response.json();
+//     console.log(data);
+//     setuser(data);
+//   }
+//   // useEffect(()=>{
     
-  // },[]);
-  getdata();
+//   // },[]);
+//   getdata();
   
-  return (
-    <ul>
-      {users.map(user=>{
-        return(<li key={user.id}>{user.login}</li>);
-      })}
-    </ul>
-  );
+//   return (
+//     <ul>
+//       {users.map(user=>{
+//         return(<li key={user.id}>{user.login}</li>);
+//       })}
+//     </ul>
+//   );
+// }
+// createRoot(document.getElementById("gt")).render(<Gt />);
+//--------------------------------------------------------------------------------------
+//multiple returns
+function MultiRetrn(){
+  const[t,f]=useState(0);
+  if(t){
+    return <h1>its true</h1>
+  }
+  else{
+    return <h1>its false</h1>}
 }
-createRoot(document.getElementById("gt")).render(<Gt />);
+createRoot(document.getElementById("mretrun")).render(<MultiRetrn />);
