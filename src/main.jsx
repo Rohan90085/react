@@ -102,7 +102,7 @@
 // }
 // createRoot(document.getElementById('c')).render(<Change />);
 //---------------------------------------------------------------------------------------------------------------
-import { StrictMode, useState } from "react";
+import { StrictMode, useState, useEffect, use } from "react";
 import { createRoot } from "react-dom/client";
 
 // ------ PROPS EXAMPLES ------
@@ -200,4 +200,22 @@ function U(){
   )
 }
 createRoot(document.getElementById("user")).render(<U />);
-//use effect
+//user effect
+
+function Usefct(){
+  const [count,setcount]=useState(0);
+  useEffect(()=>{
+    console.log("hello abhi");
+    <h1>hello abhi</h1>
+  })
+  function Incresev(){
+    setcount(count+1);
+  }
+  return(
+    <>
+    <h1>{count}</h1>
+    <button onClick={Incresev}>click me</button>
+    </>
+  )
+}
+createRoot(document.getElementById("userefct")).render(<Usefct />);
