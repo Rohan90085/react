@@ -3,7 +3,7 @@
 // import React,{UseState} from 'react';
 // import App from './App.jsx'
 // import App1 from './app1.jsx'
-// import './index.css'
+ import './index.css'
 // import { StrictMode, useState } from 'react'
 
 
@@ -169,56 +169,81 @@ function G() {
 createRoot(document.getElementById("g")).render(<G />);
 
 // ------ STATE EXAMPLE ------
-function Change() {
-  const [initial, setInitial] = useState("hello");
+// function Change() {
+//   const [initial, setInitial] = useState("hello");
 
-  function Update() {
-    if(initial=="w"){
-    setInitial("welcome to react");}
-    else{setInitial("else");}
-  }
+//   function Update() {
+//     if(initial=="w"){
+//     setInitial("welcome to react");}
+//     else{setInitial("else");}
+//   }
 
-  return (
-    <>
-      <h1>{initial}</h1>
-      <button onClick={Update}>click</button>
-    </>
-  );
-}
+//   return (
+//     <>
+//       <h1>{initial}</h1>
+//       <button onClick={Update}>click</button>
+//     </>
+//   );
+// }
 
-createRoot(document.getElementById("c")).render(<Change />);
-const user=[{name:'jdd',age:20},{name:'kdd',age:22},
-{name:'ldd',age:25}];
-function U(){
-  const [initial,setInitial]=useState(user);
-  return (
-    <>
-      {initial.map((value, index) => (
-        <ul key={index}>
-          <li>{value.name}</li>
-          <li>{value.age}</li>
-        </ul>
-      ))}
-    </>
-  );
-}
-createRoot(document.getElementById("user")).render(<U />);
+// createRoot(document.getElementById("c")).render(<Change />);
+// const user=[{name:'jdd',age:20},{name:'kdd',age:22},
+// {name:'ldd',age:25}];
+// function U(){
+//   const [initial,setInitial]=useState(user);
+//   return (
+//     <>
+//       {initial.map((value, index) => (
+//         <ul key={index}>
+//           <li>{value.name}</li>
+//           <li>{value.age}</li>
+//         </ul>
+//       ))}
+//     </>
+//   );
+// }
+// createRoot(document.getElementById("user")).render(<U />);
 //user effect
 
-function Usefct(){
-  const [count,setcount]=useState(0);
-  useEffect(()=>{
-    console.log("hello abhi");
-    <h1>hello abhi</h1>
-  },[])//second parameter is dependency array
-  function Incresev(){
-    setcount(count+1);
+// function Usefct(){
+//   const [count,setcount]=useState(0);
+//   useEffect(()=>{
+//     if(count>3){
+//     console.log("hello abhi");
+//   }
+//   },[count])//second parameter is dependency array
+//   function Incresev(){
+//     setcount(count+1);
+//   }
+//   return(
+//     <>
+//     <h1>{count}</h1>
+//     <button onClick={Incresev}>click me</button>
+//     </>
+//   )
+// }
+// createRoot(document.getElementById("userefct")).render(<Usefct />);
+
+const url='https://api.github.com/users';
+function Gt(){
+  const[users,setuser]=useState([]);
+  async function getdata(){
+    const response=await fetch(url);
+    const data=await response.json();
+    console.log(data);
+    setuser(data);
   }
-  return(
-    <>
-    <h1>{count}</h1>
-    <button onClick={Incresev}>click me</button>
-    </>
-  )
+  // useEffect(()=>{
+    
+  // },[]);
+  getdata();
+  
+  return (
+    <ul>
+      {users.map(user=>{
+        return(<li key={user.id}>{user.login}</li>);
+      })}
+    </ul>
+  );
 }
-createRoot(document.getElementById("userefct")).render(<Usefct />);
+createRoot(document.getElementById("gt")).render(<Gt />);
