@@ -191,13 +191,16 @@ const user=[{name:'jdd',age:20},{name:'kdd',age:22},
 {name:'ldd',age:25}];
 function U(){
   const [initial,setInitial]=useState(user);
-  return(
+  return (
     <>
-    {user.map((value)=>(
-      <li>{value.name}</li>
-    ))}
+      {initial.map((value, index) => (
+        <ul key={index}>
+          <li>{value.name}</li>
+          <li>{value.age}</li>
+        </ul>
+      ))}
     </>
-  )
+  );
 }
 createRoot(document.getElementById("user")).render(<U />);
 //user effect
