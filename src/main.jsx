@@ -252,30 +252,64 @@ createRoot(document.getElementById("g")).render(<G />);
 //multiple returns
 function MultiRetrn(){
   const[t,f]=useState(0);
-  function toggle(){{
-    f(!t);}
-  }
+  
+  
   if(t){
     return <h1>its true</h1>
   }
   else{
     return <h1>its false</h1>}
+
+
 }
 createRoot(document.getElementById("mretrun")).render(<MultiRetrn />);
 //--------------------------------------------------------------------------------------
 //shortcircuit evaluation
-function ShortCirEvl(){
+// function ShortCirEvl(){
  
-  const[name,setname]=useState("rohan");
-   const firsttname=name && "kumar";
-   const secndname=name||"guest";
- 
-   return(
-   <>
-   <h1>{firsttname}</h1>
-   <h1>{secndname}</h1>
-  
-   </>
-   );
- }
- createRoot(document.getElementById("scevl")).render(<ShortCirEvl />);  
+//   const[name,setname]=useState("");
+//   //  const firsttname=name && "kumar";
+//   //  const secndname=name||"guest";
+// function Tmoggle(){
+//   setname(!name);
+// }
+
+// return(
+//   <>
+//     {name ? <h1>hello {name}</h1> : <h1>welcome guest</h1>}
+//     <button onClick={Tmoggle}>click me</button>
+//   </>
+// );
+//  }
+//  createRoot(document.getElementById("scevl")).render(<ShortCirEvl />);  
+//--------------------------------------------------------------------------------------
+//controlled input
+function ControlledInput(){
+const [name,setname]=useState("");
+const [age,setage]=useState("");
+  function clickk(event){
+    event.preventDefault();
+    
+    console.log(name);
+    console.log(age);
+    
+  }
+// useEffect(()=>{
+//   console.log(name);
+//   console.log(age);
+// },[]);
+return(<>
+<form onSubmit={clickk}>
+<label>name:</label>
+<input type="text" value={name} onChange={(e)=>setname(e.target.value)}/>
+<br />
+<label>age:</label>
+<input type="number" value={age} onChange={(e)=>setage(e.target.value)}/>
+<br />
+<button type="submit">submit</button>
+</form>
+{name && age?<h1>hello {name} , your age is {age}</h1>:<h1>please enter both details</h1>}
+</>
+);
+}
+createRoot(document.getElementById("f")).render(<ControlledInput />);
