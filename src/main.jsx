@@ -252,6 +252,9 @@ createRoot(document.getElementById("g")).render(<G />);
 //multiple returns
 function MultiRetrn(){
   const[t,f]=useState(0);
+  function toggle(){{
+    f(!t);}
+  }
   if(t){
     return <h1>its true</h1>
   }
@@ -259,3 +262,20 @@ function MultiRetrn(){
     return <h1>its false</h1>}
 }
 createRoot(document.getElementById("mretrun")).render(<MultiRetrn />);
+//--------------------------------------------------------------------------------------
+//shortcircuit evaluation
+function ShortCirEvl(){
+ 
+  const[name,setname]=useState("rohan");
+   const firsttname=name && "kumar";
+   const secndname=name||"guest";
+ 
+   return(
+   <>
+   <h1>{firsttname}</h1>
+   <h1>{secndname}</h1>
+  
+   </>
+   );
+ }
+ createRoot(document.getElementById("scevl")).render(<ShortCirEvl />);  
