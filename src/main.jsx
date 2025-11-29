@@ -313,3 +313,23 @@ return(<>
 );
 }
 createRoot(document.getElementById("f")).render(<ControlledInput />); 
+//HOOKS------------------------
+function M(){
+  const [num,setnum]=useState(0);
+  function add(){
+    setnum(num+1);
+  }
+  function sub(){
+    setnum(num-1);
+  }
+
+  return(<>
+  <h1>the number{num}</h1>
+  <button onClick={add}>add</button>
+  <br/>
+  <button onClick={sub}>sub</button>
+
+  
+  </>)
+}
+createRoot(document.getElementById("n")).render(<M />);
