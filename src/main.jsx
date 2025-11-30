@@ -324,7 +324,7 @@ function M(){
   }
 
   return(<>
-  <h1>the number{num}</h1>
+  <h1 bg-black>the number{num}</h1>
   <button onClick={add}>add</button>
   <br/>
   <button onClick={sub}>sub</button>
